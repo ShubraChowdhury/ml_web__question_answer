@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+  <!-- Make it compatible to mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Q&A using distilbert model </title>
+  
+</head>
+
+<body style="background: #000;">
+ <div class="login">
+	<h1 style="color:rgba(231, 231, 238, 0.997);">Q&A using distilbert model</h1>
+
+     <!-- Action is where the data is sent. In our case, predict page.
+     If action is omitted, it assumed to be the current page -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<!-- <input type="text" name="Input Text" placeholder="Please Input your article" maxlength="2000" size="2000" required="required" /> -->
+      
+      <textarea name="Input Text" placeholder="Please Input your article " maxlength="20000"  rows="30" cols="150" required="required" > </textarea>
+
+      <br>
+
+     <!-- <input type="text" name="length of Summary" placeholder="Number of words to be summarized " maxlength="4" size="4" required="required" /> -->
+
+      <textarea name="Ask question" placeholder="Ask question from article " maxlength="500" rows="2" cols="100"  required="required" ></textarea>
+
+        <p>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Summarize Article</button></p>
+    </form>
+
+   <br>
+   <br>
+   <h4 style="color:rgba(231, 231, 238, 0.997);"> <br>
+   {{ prediction_text }} </h4>
+
+ </div>
+
+
+</body>
+</html>
